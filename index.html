@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body><div class="spotlight" aria-hidden="true"></div>
 <div class="topline"></div>
 <nav class="nav">
   <a class="brand" href="#top">K<span>R</span></a>
@@ -23,30 +23,31 @@
 </nav>
 
 <main id="top">
-<section class="hero">
-  <div class="eyebrow">BUSINESS ANALYTICS · COMMERCIAL STRATEGY · AI</div>
-  <h1>I turn messy data<br><em>into decisions.</em></h1>
-  <p class="hero-copy">I'm Komal, a Business & Data Analytics professional with 4+ years of experience across Bain & Company and ZS Associates. I build decision-ready analysis, dashboards, automated workflows and AI-assisted solutions.</p>
-  <div class="hero-actions">
-    <a class="btn primary" href="#work">Explore my work <span>↓</span></a>
-    <a class="text-link" href="Komal_Rajput_Resume.pdf">View resume ↗</a>
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-copy-wrap">
+    <div class="eyebrow hero-eyebrow"><span class="blink-dot"></span> BUSINESS ANALYTICS · COMMERCIAL STRATEGY · AI</div>
+    <h1>Making data<br><span class="scribble">make sense.</span></h1>
+    <p class="hero-copy">I'm Komal — I turn messy spreadsheets, ambiguous business questions and “there has to be a better way” moments into useful things.</p>
+    <div class="hero-actions"><a class="btn primary" href="#work">See what I've been making <span>↓</span></a><a class="text-link" href="Komal_Rajput_Resume.pdf">My résumé ↗</a></div>
+    <div class="hero-meta"><span>Excel</span><span>SQL</span><span>Power BI</span><span>Tableau</span><span>Python</span><span>AI</span></div>
   </div>
-  <div class="hero-meta">
-    <span>Based in New Delhi</span><span>•</span><span>Excel · Power BI · Tableau · SQL · Python</span>
-  </div>
+  <div class="hero-note note-one">✦ currently turning<br>ideas into prototypes</div>
+  <div class="hero-note note-two">↳ yes, I made<br>this website too.</div>
+  <div class="hero-sticker"><span>DATA</span><b>+</b><span>BUSINESS</span><b>+</b><span>AI</span><small>the fun bit</small></div>
 </section>
 
 <section class="statement">
-  <p>From <strong>analysis</strong> to <strong>automation</strong> to <strong>AI-enabled products</strong> — I enjoy turning ambiguous business problems into practical solutions.</p>
+  <p>From <strong>“why are we still doing this manually?”</strong> to <strong>“what if AI could do it?”</strong> — I like turning messy questions into practical things.</p>
 </section>
 
 <section id="work" class="section">
   <div class="section-head">
     <div>
       <div class="eyebrow">SELECTED WORK</div>
-      <h2>Four ways I solve problems.</h2>
+      <h2>Four ways I make things useful.</h2>
     </div>
-    <p>Sample portfolio cases built with synthetic data.</p>
+    <p>Four little experiments in analysis, automation, commercial thinking and SQL.</p>
   </div>
 
   <div class="projects">
@@ -114,6 +115,11 @@
   <p class="sample-note">All four projects are fictional portfolio case studies using synthetic data. Detailed working files can be shared privately for genuine project discussions.</p>
 </section>
 
+<section class="marquee" aria-label="Things Komal likes building"><div class="marquee-track">
+<span>messy data → clean story</span><i>✦</i><span>repetitive task → automation</span><i>✦</i><span>business question → model</span><i>✦</i><span>“could AI do this?” → prototype</span><i>✦</i>
+<span>messy data → clean story</span><i>✦</i><span>repetitive task → automation</span><i>✦</i><span>business question → model</span><i>✦</i><span>“could AI do this?” → prototype</span><i>✦</i>
+</div></section>
+
 <section id="about" class="about section">
   <div class="about-left">
     <div class="eyebrow">ABOUT</div>
@@ -140,6 +146,12 @@
     <div><b>Automation & AI</b><p>Process Automation · Generative AI · Prompt Engineering · AI Workflow Prototyping</p></div>
   </div>
 </section>
+
+<section class="notes section"><div class="eyebrow">A FEW NOTES FROM THE OTHER TAB</div><div class="notes-grid">
+<div class="note-card rotate-left"><span>01</span><h3>Make it clear.</h3><p>A dashboard should answer a question, not just contain 17 charts.</p></div>
+<div class="note-card rotate-right"><span>02</span><h3>Automate the annoying bit.</h3><p>If I've done the same thing three times, I'm probably thinking about how to make it a button.</p></div>
+<div class="note-card rotate-left"><span>03</span><h3>Pretty is useful.</h3><p>Good visual design isn't decoration when it helps someone spot the answer faster.</p></div>
+</div></section>
 
 <section id="contact" class="contact section">
   <div class="eyebrow">LET'S TALK</div>
@@ -222,6 +234,6 @@ function closeModal(){ modal.classList.remove("open"); modal.setAttribute("aria-
 document.querySelector(".modal-close").addEventListener("click", closeModal);
 document.querySelector(".modal-backdrop").addEventListener("click", closeModal);
 document.addEventListener("keydown", e => { if(e.key==="Escape") closeModal(); });
-</script>
+const spotlight=document.querySelector('.spotlight');if(spotlight)window.addEventListener('pointermove',e=>{spotlight.style.left=e.clientX+'px';spotlight.style.top=e.clientY+'px'});document.querySelectorAll('.project-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.setProperty('--rx',`${-y*2.2}deg`);card.style.setProperty('--ry',`${x*2.2}deg`)});card.addEventListener('pointerleave',()=>{card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg')})});</script>
 </body>
 </html>
